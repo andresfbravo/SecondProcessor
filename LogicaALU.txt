@@ -13,16 +13,16 @@ aluop		operacion
 100001		addcc %%
 100010		addxcc %%
 100011		addx 
-100100		subcc 
-100101		subxcc 
+100100		subcc %%
+100101		subxcc %%
 100110		subx
 		
-100111		andcc
-101000		andncc
-101001		orcc
-101010		orncc
-101011		xorcc
-101100		xnorcc
+100111		andcc %%
+101000		andncc %%
+101001		orcc %%
+101010		orncc %%
+101011		xorcc %%
+101100		xnorcc %%
 		
 
 101101		sll
