@@ -30,9 +30,7 @@ begin
 				regispsr(4 downto 0) <= ncwp;
 				
 			end if;
-				
-			
-	
+
 	end process;
 	c <= regispsr(23);
 	cwp <= regispsr(4 downto 0);
