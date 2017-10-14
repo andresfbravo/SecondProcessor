@@ -22,13 +22,13 @@ aluop		operacion
 101001		orcc
 101010		orncc
 101011		xorcc
-		xnorcc
+101100		xnorcc
 		
 
-101100		sll
-101101		srl
-101110		save
-101111		restore
+101101		sll
+101110		srl
+101111		save
+110000		restore
 
 
 		
