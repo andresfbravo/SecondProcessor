@@ -1,0 +1,11 @@
+aluop		operacion
+000000		suma enteros
+000100		resta de enteros
+
+
+000001		and de enteros
+000101		nand de enteros
+000010		or de enteros
+000110		nor de enteros
+000011		xor de enteros
+000111		xnor de enteros
