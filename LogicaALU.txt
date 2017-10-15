@@ -10,25 +10,28 @@ aluop		operacion
 000011		xor de enteros $$
 000111		xnor de enteros $$
 
-100001		addcc %%
-100010		addxcc %%
-100011		addx 
-100100		subcc %%
-100101		subxcc %%
-100110		subx
+op 10
+100001		addcc %% op3 010000
+100010		addxcc %% op3 011000
+100011		addx     op3 001000
+100100		subcc %% op3 010100
+100101		subxcc %% op3 011100
+100110		subx	  op3 001100
 		
-100111		andcc %%
-101000		andncc %%
-101001		orcc %%
-101010		orncc %%
-101011		xorcc %%
-101100		xnorcc %%
+100111		andcc %%  op3 010001
+101000		andncc %% op3 010101
+101001		orcc %% op3 010010
+101010		orncc %% op3 010110
+101011		xorcc %% op3 010011
+101100		xnorcc %% op3 010111
 		
+op 10 			
+101101		sll op3 100101
+101110		srl op3 100110
 
-101101		sll
-101110		srl
-101111		save
-110000		restore
+op 10
+101111		save op3 111100
+110000		restore op3 111101
 
 
 		
