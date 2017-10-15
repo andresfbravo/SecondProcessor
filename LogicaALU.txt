@@ -1,14 +1,14 @@
 aluop		operacion
-000000		suma enteros $$
-000100		resta de enteros $$
+000000		suma enteros $$ op3 000000
+000100		resta de enteros $$ op3 000100
 
 
-000001		and de enteros $$
-000101		nand de enteros $$
-000010		or de enteros $$
-000110		nor de enteros $$
-000011		xor de enteros $$
-000111		xnor de enteros $$
+000001		and de enteros $$ op3 000001
+000101		nand de enteros $$ op3 000101
+000010		or de enteros $$ op3 000010
+000110		nor de enteros $$ op3 000110
+000011		xor de enteros $$ op3 000011
+000111		xnor de enteros $$ op3 000111
 
 op 10
 100001		addcc %% op3 010000
