@@ -19,6 +19,8 @@ entity windowsManager is
 end windowsManager;
 
 architecture Behavioral of windowsManager is
+signal auxcwp:STD_LOGIC_VECTOR(4 downto 0) := "00000";
+
 
 begin
 	
@@ -100,11 +102,62 @@ begin
 			END IF;
 			--------------------------------------------------
 			
-		--if( OP = "10" AND OP3 = "111100" )  THEN-- SAVE
+		if( OP = "10" AND (OP3 = "111100" OR  OP3 = "111101" ) )  THEN
 		
-		--ELSIF(OP = "10" AND OP3 = "111101") THEN-- RESTORE
-	
-		--ELSE
+			if op3 = "111100" then-- SAVE
+				if cwp = "00000" then
+					ncwp <= "00000";
+					--auxcwp <= "00000";
+					NRD <= ('0' & RD ); 
+
+				else
+					ncwp <= cwp - "00001";
+					--auxcwp <= cwp - "00001";
+					NRD <= ('0' & RD );
+				end if;
+			end if;
+			
+			if op3 = "111101" then -- RESTORE
+			
+				if cwp = "00001" then
+					ncwp <= "00001";
+					--auxcwp<= "00001";
+				else
+					ncwp <= cwp + "00001";
+					--auxcwp <= cwp + "00001";
+				end if;
+				
+				IF( RD >= "11000" AND RD <= "11111") THEN -- RD SIEMPRE SE DESPLAZA PQ LA VENTANA DESTINO ES 1
+						NRD <= ('0' & RD ) - "10000";
+					ELSIF ( RD >= "01000" AND RD <= "10111") THEN
+						NRD <= ('0' & RD ) + "10000";
+					ELSE
+						NRD <= ('0' & RD );
+					END IF;
+			end if;
+			
+--			IF( RD >= "11000" AND RD <= "11111") THEN  -- MODIFICAR RD con la ventana siguien pq hubo save y restore
+--			
+--				--NRD <= ('0' & RD )  - (('0' &CWP) * ('0' &"10000"));
+--				if auxcwp = "00001" then
+--					NRD <= ('0' & RD ) - "10000";
+--				elsif auxcwp = "00000" then
+--					NRD <= ('0' & RD ) ;
+--				end if;
+--				
+--				
+--			ELSIF ( RD >= "01000" AND RD <= "10111") THEN 
+--				--NRD <= ('0' & RD )  + (('0' &CWP )* ('0' & "10000"));
+--				if auxcwp = "00001" then
+--					NRD <= ('0' & RD ) + "10000";
+--				elsif auxcwp = "00000" then
+--					NRD <= ('0' & RD );
+--				end if;
+--			ELSE
+--				NRD <= ('0' & RD ); 
+--			END IF;
+
+		ELSE -- cuando no hay save ni restore entonces el rd es el de la ventana actual
 			IF( RD >= "11000" AND RD <= "11111") THEN  -- MODIFICAR RD
 			
 				--NRD <= ('0' & RD )  - (('0' &CWP) * ('0' &"10000"));
@@ -122,10 +175,7 @@ begin
 				elsif cwp = "00000" then
 					NRD <= ('0' & RD );
 				end if;
-			
-				
-				
-				
+
 			ELSIF ( RD >= "01000" AND RD <= "01111") THEN 
 			
 				--NRD <= ('0' & RD )  + (('0' &CWP )* ('0' &"10000"));
@@ -138,7 +188,7 @@ begin
 				NRD <= ('0' & RD ); 
 			END IF;
 		
-		--END IF;
+		END IF;
 		
 
 	end process;
