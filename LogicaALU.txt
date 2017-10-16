@@ -13,10 +13,10 @@ aluop		operacion
 op 10
 100001		addcc %% op3 010000
 100010		addxcc %% op3 011000
-100011		addx     op3 001000
+100011		addx   %%  op3 001000
 100100		subcc %% op3 010100
 100101		subxcc %% op3 011100
-100110		subx	  op3 001100
+100110		subx   %%  op3 001100
 		
 100111		andcc %%  op3 010001
 101000		andncc %% op3 010101
@@ -26,12 +26,12 @@ op 10
 101100		xnorcc %% op3 010111
 		
 op 10 			
-101101		sll op3 100101
-101110		srl op3 100110
+101101		sll    op3 100101
+101110		srl    op3 100110
 
 op 10
-101111		save op3 111100
-110000		restore op3 111101
+101111		save %% op3 111100
+110000		restore %% op3 111101
 
 
 		
