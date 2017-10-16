@@ -7,9 +7,9 @@ use IEEE.std_logic_unsigned.all;
 
 
 entity RegisterFile is
-    Port ( rs1 : in  STD_LOGIC_VECTOR (4 downto 0);
-           rs2 : in  STD_LOGIC_VECTOR (4 downto 0);
-           rd : in  STD_LOGIC_VECTOR (4 downto 0);
+    Port ( rs1 : in  STD_LOGIC_VECTOR (5 downto 0);
+           rs2 : in  STD_LOGIC_VECTOR (5 downto 0);
+           rd : in  STD_LOGIC_VECTOR (5 downto 0);
            DtoWrite : in  STD_LOGIC_VECTOR (31 downto 0);
            rst : in  STD_LOGIC;
            crs1 : out  STD_LOGIC_VECTOR (31 downto 0);

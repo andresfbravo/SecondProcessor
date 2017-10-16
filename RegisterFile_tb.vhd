@@ -15,9 +15,9 @@ ARCHITECTURE behavior OF RegisterFile_tb IS
  
     COMPONENT RegisterFile
     PORT(
-         rs1 : IN  std_logic_vector(4 downto 0);
-         rs2 : IN  std_logic_vector(4 downto 0);
-         rd : IN  std_logic_vector(4 downto 0);
+         rs1 : IN  std_logic_vector(5 downto 0);
+         rs2 : IN  std_logic_vector(5 downto 0);
+         rd : IN  std_logic_vector(5 downto 0);
          DtoWrite : IN  std_logic_vector(31 downto 0);
          rst : IN  std_logic;
          crs1 : OUT  std_logic_vector(31 downto 0);
@@ -27,9 +27,9 @@ ARCHITECTURE behavior OF RegisterFile_tb IS
     
 
    --Inputs
-   signal rs1 : std_logic_vector(4 downto 0) := (others => '0');
-   signal rs2 : std_logic_vector(4 downto 0) := (others => '0');
-   signal rd : std_logic_vector(4 downto 0) := (others => '0');
+   signal rs1 : std_logic_vector(5 downto 0) := (others => '0');
+   signal rs2 : std_logic_vector(5 downto 0) := (others => '0');
+   signal rd : std_logic_vector(5 downto 0) := (others => '0');
    signal DtoWrite : std_logic_vector(31 downto 0) := (others => '0');
 	signal crs1 : std_logic_vector(31 downto 0) := (others => '0');
 	signal crs2 : std_logic_vector(31 downto 0) := (others => '0');
@@ -81,24 +81,24 @@ BEGIN
 		
 		wait for 15 ns;
 		
-		rd <= "00000";
+		rd <= "000000";
 		
 		wait for 15 ns;
 		
-		rs1 <= "00000";
-		rs2 <= "00001";
+		rs1 <= "000000";
+		rs2 <= "000001";
 		wait for 15 ns;
-		rs1 <= "00001";
-		rs2 <= "00010";
+		rs1 <= "000001";
+		rs2 <= "000010";
 		wait for 15 ns;
-		rs1 <= "00010";
-		rs2 <= "00011";
+		rs1 <= "000010";
+		rs2 <= "000011";
 		wait for 15 ns;
-		rs1 <= "00011";
-		rs2 <= "00100";
+		rs1 <= "000011";
+		rs2 <= "000100";
 		wait for 15 ns;
-		rs1 <= "00100";
-		rs2 <= "00101";
+		rs1 <= "000100";
+		rs2 <= "000101";
 		wait for 15 ns;
 		
 		
