@@ -3,6 +3,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
+use std.textio.all;
 
 entity ALU is
     Port ( CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
@@ -64,10 +65,12 @@ begin
 			when "010111" => -- xnorcc
 				aluresult <= crs1 XNOR CRS2mux ;
 
---			when "100101" => -- sll
---			
---			when "100110" => -- srl
-
+			when "100101" => -- sll
+				aluresult <= to_stdlogicvector((to_bitvector(CRS1)) sll conv_integer (CRS2mux));
+				--aluresult <= crs1 + CRS2mux  ;
+			when "100110" => -- srl
+				aluresult <= to_stdlogicvector((to_bitvector(CRS1)) srl conv_integer (CRS2mux));
+				--aluresult <= crs1 + CRS2mux  ;
 			when "111100" => --  save
 				aluresult <= crs1 + CRS2mux  ;
 			when "111101" => -- restore

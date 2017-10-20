@@ -19,7 +19,7 @@ end RegisterFile;
 
 
 architecture syn of RegisterFile is
-    type ram_type is array (0 to 31) of std_logic_vector (31 downto 0);
+    type ram_type is array (0 to 39) of std_logic_vector (31 downto 0);
     signal RAM: ram_type:= ( others => "00000000000000000000000000000000");
 begin
 		RAM(0)<="00000000000000000000000000000000" ;

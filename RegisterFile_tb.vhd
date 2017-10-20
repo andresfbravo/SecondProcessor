@@ -56,9 +56,9 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-		rs1 <= "00000";
-		rs2 <="00000"; 
-		rd <="00001";
+		rs1 <= "000000";
+		rs2 <="000000"; 
+		rd <="000001";
 		dToWrite <= "00000000000000000000000000000001";
 		
 		
