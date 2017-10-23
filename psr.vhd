@@ -19,7 +19,7 @@ architecture Behavioral of psr is
 begin
 	
 	
-	process(clk, rst)
+	process(clk, rst,nzvc)
 		begin
 			if ( rst='1') then
 				regispsr <=  "00000000000000000000000000000000";
